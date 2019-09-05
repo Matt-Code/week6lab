@@ -210,7 +210,7 @@ app.get('/nonSamLee', function (req, res) {
     res.redirect('/listTask');
 });
 
-// delete all tasks that are marked complete AND their due date is already passed
+//delete all tasks that are marked complete AND their due date is already passed
 app.get('/deleteOldComplete', function (req, res) {
 
     let filter = {$and: [{taskStatus: {$eq: "Complete"}}, {taskDue: {$lte: new Date()}}]};
@@ -224,5 +224,6 @@ app.get('/deleteOldComplete', function (req, res) {
     })
     res.redirect('/listTask');
 });
+
 
 app.listen(8080);
